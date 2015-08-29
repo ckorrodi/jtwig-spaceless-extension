@@ -17,9 +17,9 @@ bintray {
         publicDownloadNumbers = true
         publish = true
         version {
-            name = 'jtwig-json-spaceless-' + project.version
+            name = 'jtwig-spaceless-extension-' + project.version
             desc = 'Jtwig : Modern Template Engine for Java'
-            vcsTag = "jtwig-json-spaceless-" + project.version
+            vcsTag = "jtwig-spaceless-extension-" + project.version
         }
     }
 }
