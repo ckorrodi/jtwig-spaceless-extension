@@ -7,7 +7,7 @@ bintray {
     pkg {
         repo = 'maven'
         userOrg = 'jtwig'
-        name = 'jtwig-json-extension'
+        name = 'jtwig-spaceless-extension'
         desc = 'Jtwig : Modern Template Engine for Java'
         websiteUrl = 'http://www.jtwig.org'
         issueTrackerUrl = 'https://github.com/jtwig/jtwig/issues'
