@@ -3,6 +3,7 @@ package org.jtwig.spaceless.integration;
 import org.jtwig.JtwigModel;
 import org.jtwig.JtwigTemplate;
 import org.jtwig.spaceless.SpacelessExtension;
+import org.jtwig.spaceless.configuration.DefaultSpacelessConfiguration;
 import org.jtwig.spaceless.configuration.SpacelessConfigurationBuilder;
 import org.junit.Test;
 
@@ -16,7 +17,7 @@ public class SpacelessTest {
         String result = JtwigTemplate.inlineTemplate("{% spaceless %}<div>\n" +
                 "        <strong>foo</strong>\n" +
                 "    </div>{% endspaceless %}", configuration()
-                .withExtension(new SpacelessExtension(new SpacelessConfigurationBuilder().build()))
+                .withExtension(new SpacelessExtension(new SpacelessConfigurationBuilder(new DefaultSpacelessConfiguration()).build()))
                 .build()).render(JtwigModel.newModel());
         assertThat(result, is("<div><strong>foo</strong></div>"));
     }
@@ -28,7 +29,7 @@ public class SpacelessTest {
                 "{% autoescape 'html' %}&amp;{% endautoescape %}" +
                 "{% endspaceless %}" +
                 "{% endautoescape %}", configuration()
-                        .withExtension(new SpacelessExtension(new SpacelessConfigurationBuilder().build())).build())
+                        .withExtension(new SpacelessExtension(new SpacelessConfigurationBuilder(new DefaultSpacelessConfiguration()).build())).build())
                 .render(JtwigModel.newModel());
 
         assertThat(result, is("&amp;amp;"));
