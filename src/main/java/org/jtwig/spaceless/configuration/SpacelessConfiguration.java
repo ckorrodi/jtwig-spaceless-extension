@@ -18,6 +18,10 @@ public class SpacelessConfiguration {
         this.spaceRemover = spaceRemover;
     }
 
+    public SpaceRemover getSpaceRemover() {
+        return spaceRemover;
+    }
+
     public void configure(EnvironmentConfigurationBuilder environmentConfigurationBuilder) {
         environmentConfigurationBuilder.withParameter(SPACE_REMOVER, spaceRemover);
     }
