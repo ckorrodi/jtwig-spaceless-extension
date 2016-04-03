@@ -3,7 +3,9 @@ package org.jtwig.spaceless;
 import org.jtwig.environment.EnvironmentConfigurationBuilder;
 import org.jtwig.extension.Extension;
 import org.jtwig.spaceless.configuration.SpacelessConfiguration;
+import org.jtwig.spaceless.node.SpacelessNode;
 import org.jtwig.spaceless.parser.SpacelessAddonParserProvider;
+import org.jtwig.spaceless.render.node.SpacelessNodeRender;
 
 public class SpacelessExtension implements Extension {
     private final SpacelessConfiguration configuration;
@@ -16,6 +18,7 @@ public class SpacelessExtension implements Extension {
     public void configure(EnvironmentConfigurationBuilder environmentConfigurationBuilder) {
         configuration.configure(environmentConfigurationBuilder);
         environmentConfigurationBuilder.parser()
-                .withAddonParserProvider(new SpacelessAddonParserProvider());
+                .withAddonParserProvider(new SpacelessAddonParserProvider()).and()
+                .render().withRender(SpacelessNode.class, new SpacelessNodeRender());
     }
 }
