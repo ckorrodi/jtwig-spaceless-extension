@@ -1,7 +1,7 @@
 package org.jtwig.spaceless.render.node;
 
+import org.jtwig.escape.NoneEscapeEngine;
 import org.jtwig.render.RenderRequest;
-import org.jtwig.render.context.model.EscapeMode;
 import org.jtwig.render.node.renderer.NodeRender;
 import org.jtwig.renderable.Renderable;
 import org.jtwig.renderable.StringBuilderRenderResult;
@@ -16,6 +16,6 @@ public class SpacelessNodeRender implements NodeRender<SpacelessNode> {
         Renderable renderable = request.getEnvironment().getRenderEnvironment().getRenderNodeService().render(request, node.getContent());
         String content = renderable.appendTo(result).content();
         String contentWithoutSpaces = SpacelessConfiguration.spaceRemover(request.getEnvironment()).removeSpaces(content);
-        return new StringRenderable(contentWithoutSpaces, EscapeMode.NONE);
+        return new StringRenderable(contentWithoutSpaces, NoneEscapeEngine.instance());
     }
 }

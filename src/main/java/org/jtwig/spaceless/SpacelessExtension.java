@@ -18,7 +18,7 @@ public class SpacelessExtension implements Extension {
     public void configure(EnvironmentConfigurationBuilder environmentConfigurationBuilder) {
         configuration.configure(environmentConfigurationBuilder);
         environmentConfigurationBuilder.parser()
-                .withAddonParserProvider(new SpacelessAddonParserProvider()).and()
-                .render().withRender(SpacelessNode.class, new SpacelessNodeRender());
+                .addonParserProviders().add(new SpacelessAddonParserProvider()).and().and()
+                .render().nodeRenders().add(SpacelessNode.class, new SpacelessNodeRender());
     }
 }

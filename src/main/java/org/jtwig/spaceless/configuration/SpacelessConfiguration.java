@@ -23,6 +23,6 @@ public class SpacelessConfiguration {
     }
 
     public void configure(EnvironmentConfigurationBuilder environmentConfigurationBuilder) {
-        environmentConfigurationBuilder.withParameter(SPACE_REMOVER, spaceRemover);
+        environmentConfigurationBuilder.parameters().add(SPACE_REMOVER, spaceRemover);
     }
 }

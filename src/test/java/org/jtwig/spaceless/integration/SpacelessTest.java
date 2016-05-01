@@ -17,7 +17,7 @@ public class SpacelessTest {
         String result = JtwigTemplate.inlineTemplate("{% spaceless %}<div>\n" +
                 "        <strong>foo</strong>\n" +
                 "    </div>{% endspaceless %}", configuration()
-                .withExtension(new SpacelessExtension(new SpacelessConfigurationBuilder(new DefaultSpacelessConfiguration()).build()))
+                .extensions().add(new SpacelessExtension(new SpacelessConfigurationBuilder(new DefaultSpacelessConfiguration()).build())).and()
                 .build()).render(JtwigModel.newModel());
         assertThat(result, is("<div><strong>foo</strong></div>"));
     }
@@ -29,7 +29,7 @@ public class SpacelessTest {
                 "{% autoescape 'html' %}&amp;{% endautoescape %}" +
                 "{% endspaceless %}" +
                 "{% endautoescape %}", configuration()
-                        .withExtension(new SpacelessExtension(new SpacelessConfigurationBuilder(new DefaultSpacelessConfiguration()).build())).build())
+                        .extensions().add(new SpacelessExtension(new SpacelessConfigurationBuilder(new DefaultSpacelessConfiguration()).build())).and().build())
                 .render(JtwigModel.newModel());
 
         assertThat(result, is("&amp;amp;"));
