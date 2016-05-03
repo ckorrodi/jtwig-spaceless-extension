@@ -10,6 +10,7 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.jtwig.environment.EnvironmentConfigurationBuilder.configuration;
+import static org.jtwig.spaceless.SpacelessExtension.defaultSpacelessExtension;
 
 public class SpacelessTest {
     @Test
@@ -17,7 +18,7 @@ public class SpacelessTest {
         String result = JtwigTemplate.inlineTemplate("{% spaceless %}<div>\n" +
                 "        <strong>foo</strong>\n" +
                 "    </div>{% endspaceless %}", configuration()
-                .extensions().add(new SpacelessExtension(new SpacelessConfigurationBuilder(new DefaultSpacelessConfiguration()).build())).and()
+                .extensions().add(defaultSpacelessExtension()).and()
                 .build()).render(JtwigModel.newModel());
         assertThat(result, is("<div><strong>foo</strong></div>"));
     }

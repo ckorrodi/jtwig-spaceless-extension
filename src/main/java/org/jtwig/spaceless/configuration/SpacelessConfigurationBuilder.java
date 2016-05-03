@@ -4,6 +4,10 @@ import org.apache.commons.lang3.builder.Builder;
 import org.jtwig.spaceless.remover.SpaceRemover;
 
 public class SpacelessConfigurationBuilder implements Builder<SpacelessConfiguration> {
+    public static SpacelessConfigurationBuilder spacelessConfiguration () {
+        return new SpacelessConfigurationBuilder(new DefaultSpacelessConfiguration());
+    }
+
     private SpaceRemover spaceRemover;
 
     public SpacelessConfigurationBuilder(SpacelessConfiguration prototype) {
