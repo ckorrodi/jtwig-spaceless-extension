@@ -2,12 +2,17 @@ package org.jtwig.spaceless;
 
 import org.jtwig.environment.EnvironmentConfigurationBuilder;
 import org.jtwig.extension.Extension;
+import org.jtwig.spaceless.configuration.DefaultSpacelessConfiguration;
 import org.jtwig.spaceless.configuration.SpacelessConfiguration;
 import org.jtwig.spaceless.node.SpacelessNode;
 import org.jtwig.spaceless.parser.SpacelessAddonParserProvider;
 import org.jtwig.spaceless.render.node.SpacelessNodeRender;
 
 public class SpacelessExtension implements Extension {
+    public static SpacelessExtension defaultSpacelessExtension () {
+        return new SpacelessExtension(new DefaultSpacelessConfiguration());
+    }
+
     private final SpacelessConfiguration configuration;
 
     public SpacelessExtension(SpacelessConfiguration configuration) {
