@@ -27,7 +27,7 @@ public class SpacelessTest {
     public void spacelessNestedWithAutoEspace() throws Exception {
         String result = JtwigTemplate.inlineTemplate("{% autoescape 'html' %}" +
                 "{% spaceless %}" +
-                "{% autoescape 'html' %}&amp;{% endautoescape %}" +
+                "{% autoescape 'html' %}{{ '&amp;' }}{% endautoescape %}" +
                 "{% endspaceless %}" +
                 "{% endautoescape %}", configuration()
                         .extensions().add(new SpacelessExtension(new SpacelessConfigurationBuilder(new DefaultSpacelessConfiguration()).build())).and().build())
